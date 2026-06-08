@@ -63,3 +63,20 @@ Optimized:   False  # O(n)
 =================================================
 
 """
+
+def has_duplicate_brute(nums):
+    
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] == nums[j]:
+                return True
+
+    return False
+
+def has_duplicate_fast(nums):
+    numbers_set = set()
+    for value in nums:      
+        if value in numbers_set:
+            return True        
+        numbers_set.add(value)
+    return False

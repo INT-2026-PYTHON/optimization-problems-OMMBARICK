@@ -87,3 +87,23 @@ O(1) time, giving an overall O(n) algorithm.
 =================================================
 
 """
+def two_sum_brute(nums, target):    
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):            
+            if nums[i] + nums[j] == target:
+                return (i, j)
+
+
+
+def two_sum_fast(nums, target):
+    index_map = {}   # value -> index
+    for i in range(len(nums)):
+        x = nums[i]
+        complement = target - x
+        
+        if complement in index_map:
+            return (index_map[complement], i)       
+        index_map[x] = i
+
+
+
